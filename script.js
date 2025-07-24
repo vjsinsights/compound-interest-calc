@@ -6,20 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const summaryContainer = document.getElementById('summary');
     const growthChartCanvas = document.getElementById('growth-chart').getContext('2d');
     let growthChart;
-    let segmentCounter = 1;
+
+    const renumberContributionSegments = () => {
+        const segments = contributionSegmentsContainer.querySelectorAll('.contribution-segment');
+        segments.forEach((segment, index) => {
+            segment.querySelector('h4').textContent = `Contribution Period ${index + 1}`;
+        });
+    };
 
     const addContributionSegment = () => {
-        segmentCounter++;
         const templateContent = contributionTemplate.content.cloneNode(true);
         const newSegment = templateContent.querySelector('.contribution-segment');
-        newSegment.querySelector('h4').textContent = `Contribution Period ${segmentCounter}`;
         contributionSegmentsContainer.appendChild(templateContent);
         
         const removeBtn = newSegment.querySelector('.btn-remove');
         removeBtn.addEventListener('click', () => {
             newSegment.remove();
-            // No need to decrement segmentCounter as it just needs to be unique
+            renumberContributionSegments();
         });
+
+        renumberContributionSegments();
     };
 
     const calculateCompoundInterest = (formData) => {

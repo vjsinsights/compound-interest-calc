@@ -115,7 +115,8 @@ input:focus, select:focus {
 }
 
 .contribution-segment {
-    padding: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
 }
 
 .starting-amount-section {
@@ -126,8 +127,6 @@ input:focus, select:focus {
 
 .contribution-segment:nth-child(even) {
     background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1rem;
 }
 
 .segment-header {
