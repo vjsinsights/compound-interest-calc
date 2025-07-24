@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalContributions = 0;
         let cumulativeYears = 0;
 
-        yearlyData.push({ year: 0, balance: startAmount });
+        yearlyData.push({ year: 0, balance: startAmount, totalContributions: 0 });
 
         contributions.forEach(period => {
             const periodicInterestRate = (period.interestRate / 100) / period.compoundingFrequency;
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         totalContributions += contribution;
                     }
                 }
-                yearlyData.push({ year: cumulativeYears + year, balance });
+                yearlyData.push({ year: cumulativeYears + year, balance, totalContributions });
             }
             cumulativeYears += period.duration;
         });
@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!data || data.length === 0) return;
 
         const labels = data.map(d => d.year);
-        const values = data.map(d => d.balance.toFixed(2));
+        const investmentValues = data.map(d => d.balance.toFixed(2));
+        const contributionValues = data.map(d => (d.totalContributions + data[0].balance).toFixed(2));
+
 
         if (growthChart) {
             growthChart.destroy();
@@ -73,9 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: labels,
                 datasets: [{
                     label: 'Investment Growth',
-                    data: values,
+                    data: investmentValues,
                     borderColor: '#007bff',
                     backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    fill: true,
+                    tension: 0.1
+                }, {
+                    label: 'Total Contributions',
+                    data: contributionValues,
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
                     fill: true,
                     tension: 0.1
                 }]

@@ -118,6 +118,18 @@ input:focus, select:focus {
     padding: 1rem 0;
 }
 
+.starting-amount-section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.contribution-segment:nth-child(even) {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
 .segment-header {
     display: flex;
     justify-content: space-between;
