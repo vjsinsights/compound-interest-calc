@@ -133,9 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
+    const calculateAndDisplay = () => {
         const formData = {
             startAmount: parseFloat(document.getElementById('start-amount').value),
             contributions: Array.from(contributionSegmentsContainer.querySelectorAll('.contribution-segment')).map(segment => ({
@@ -150,7 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const { yearlyData, finalBalance, totalContributions } = calculateCompoundInterest(formData);
         updateChart(yearlyData);
         updateSummary(finalBalance, totalContributions);
+    };
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        calculateAndDisplay();
     });
 
     addContributionBtn.addEventListener('click', addContributionSegment);
+
+    calculateAndDisplay();
 });
