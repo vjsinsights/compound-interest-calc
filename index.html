@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compound Interest Calculator</title>
-    <meta name="description" content="A powerful and easy-to-use compound interest calculator with variable recurring contributions to visualize your investment growth.">
+    <meta name="description" content="A powerful and free to use compound interest calculator with variable recurring contributions to visualize your investment growth.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +16,12 @@
     <div class="container">
         <div class="form-container">
             <h1>Compound Interest Calculator</h1>
+            <p class="subtitle">(with variable recurring contributions)</p>
             <form id="calculator-form">
                 <div class="starting-amount-section">
                 <div class="form-group">
                     <label for="start-amount">Starting Amount ($)</label>
-                    <input type="number" id="start-amount" value="10000" min="0" required>
+                    <input type="number" id="start-amount" value="10000" min="0" step="any" required>
                 </div>
             </div>
                 <div id="contribution-segments">
@@ -28,15 +31,15 @@
                         </div>
                         <div class="form-group">
                             <label>Duration (Years)</label>
-                            <input type="number" class="duration" value="10" min="1" required>
+                            <input type="number" class="duration" value="10" min="1" required aria-label="Duration (Years)">
                         </div>
                         <div class="form-group">
                             <label>Contribution Amount ($)</label>
-                            <input type="number" class="contribution-amount" value="500" min="0" required>
+                            <input type="number" class="contribution-amount" value="500" min="0" step="any" required aria-label="Contribution Amount ($)">
                         </div>
                         <div class="form-group">
                             <label>Contribution Frequency</label>
-                            <select class="contribution-frequency">
+                            <select class="contribution-frequency" aria-label="Contribution Frequency">
                                 <option value="12">Monthly</option>
                                 <option value="4">Quarterly</option>
                                 <option value="1">Annually</option>
@@ -44,11 +47,11 @@
                         </div>
                         <div class="form-group">
                             <label>Annual Interest Rate (%)</label>
-                            <input type="number" class="interest-rate" value="7" min="0" required>
+                            <input type="number" class="interest-rate" value="7" min="0" step="any" required aria-label="Annual Interest Rate (%)">
                         </div>
                         <div class="form-group">
                             <label>Compounding Frequency</label>
-                            <select class="compounding-frequency">
+                            <select class="compounding-frequency" aria-label="Compounding Frequency">
                                 <option value="12">Monthly</option>
                                 <option value="4">Quarterly</option>
                                 <option value="2">Semi-Annually</option>
@@ -58,8 +61,16 @@
                     </div>
                 </div>
 
-                <button type="button" id="add-contribution" class="btn btn-secondary">Add Contribution Period</button>
-                <button type="submit" id="calculate-btn" class="btn btn-primary">Calculate</button>
+                <div class="form-group">
+                    <label for="contribution-timing">Apply Contributions</label>
+                    <select id="contribution-timing" aria-label="Contribution Timing">
+                        <option value="end">At the end of each period</option>
+                        <option value="beginning">At the beginning of each period</option>
+                    </select>
+                </div>
+
+                <button type="button" id="add-contribution" class="btn btn-secondary" aria-label="Add Contribution Period">Add Contribution Period</button>
+                <button type="submit" id="calculate-btn" class="btn btn-primary" aria-label="Calculate">Calculate</button>
             </form>
         </div>
         <div class="chart-container">
@@ -77,19 +88,19 @@
             <hr>
             <div class="segment-header">
                 <h4>Contribution Period</h4>
-                <button type="button" class="btn-remove">Remove</button>
+                <button type="button" class="btn-remove" aria-label="Remove Contribution Period">Remove</button>
             </div>
             <div class="form-group">
                 <label>Duration (Years)</label>
-                <input type="number" class="duration" value="10" min="1" required>
+                <input type="number" class="duration" value="10" min="1" required aria-label="Duration (Years)">
             </div>
             <div class="form-group">
                 <label>Contribution Amount ($)</label>
-                <input type="number" class="contribution-amount" value="500" min="0" required>
+                <input type="number" class="contribution-amount" value="500" min="0" step="any" required aria-label="Contribution Amount ($)">
             </div>
             <div class="form-group">
                 <label>Contribution Frequency</label>
-                <select class="contribution-frequency">
+                <select class="contribution-frequency" aria-label="Contribution Frequency">
                     <option value="12">Monthly</option>
                     <option value="4">Quarterly</option>
                     <option value="1">Annually</option>
@@ -97,11 +108,11 @@
             </div>
             <div class="form-group">
                 <label>Annual Interest Rate (%)</label>
-                <input type="number" class="interest-rate" value="7" min="0" required>
+                <input type="number" class="interest-rate" value="7" min="0" step="any" required aria-label="Annual Interest Rate (%)">
             </div>
             <div class="form-group">
                 <label>Compounding Frequency</label>
-                <select class="compounding-frequency">
+                <select class="compounding-frequency" aria-label="Compounding Frequency">
                     <option value="12">Monthly</option>
                     <option value="4">Quarterly</option>
                     <option value="2">Semi-Annually</option>
@@ -111,7 +122,7 @@
         </div>
     </template>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

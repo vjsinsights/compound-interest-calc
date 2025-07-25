@@ -1,0 +1,27 @@
+Create a lightweight, SEO-friendly, professional-looking web app using only HTML, CSS (Tailwind or minimal CSS), and vanilla JavaScript (no frameworks).
+
+Purpose: A compound interest calculator with variable recurring contributions.
+
+Requirements:
+1. User inputs on the left side of the screen:
+    - Starting amount
+    - One or more contribution segments (add/remove dynamically):
+        - Contribution amount
+        - Contribution frequency
+        - Annual interest rate for that segment (in %)
+2. "Add Contribution Period" button to add multiple contribution segments.
+3. "Calculate" button that computes compound interest monthly based on the segments.
+4. A responsive line chart (using Chart.js) on the right side showing growth over time.
+5. Clear summary of final amount and total contributions below the chart.
+6. UX should be clean and professional-looking:
+    - Use modern fonts
+    - Good combination of colors; nothing to bright or flashy.
+    - Form should have proper labels, spacing, and validation (e.g., positive numbers)
+7. Code should be secure and accessible (no eval, no inline JS, semantic HTML).
+8. Entire app should be a single HTML file (with separate CSS and JS files if needed).
+9. Ensure it's responsive and mobile-friendly.
+10. Include proper meta tags for SEO (title, description, viewport, etc.)
+11. Code should be ready to deploy on Netlify or GitHub Pages.
+
+Do not use React or any frontend framework. Only use vanilla JavaScript and Chart.js.
+
