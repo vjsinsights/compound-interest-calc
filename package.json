@@ -1,0 +1,27 @@
+{
+  "name": "compoundinterestcalc",
+  "version": "1.0.0",
+  "description": "This is a simple and powerful web-based compound interest calculator that helps you visualize the growth of your investments over time. It allows for variable contribution periods, interest rates, and compounding frequencies, making it a flexible tool for financial planning.",
+  "main": "script.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjsinsights/compound-interest-calc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vjsinsights/compound-interest-calc/issues"
+  },
+  "homepage": "https://github.com/vjsinsights/compound-interest-calc#readme",
+  "devDependencies": {
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
+  }
+}
